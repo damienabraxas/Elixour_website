@@ -107,10 +107,10 @@ a {
 }
 
 .hero__content {
-  align-self: center;
+  align-self: end;
   width: 100%;
   margin-inline: auto;
-  padding-block: clamp(4rem, 12vh, 9rem);
+  padding-block: clamp(3rem, 7vh, 5rem) clamp(2rem, 5vh, 4rem);
   text-align: center;
 }
 
@@ -176,6 +176,10 @@ a {
 
   .hero__title {
     letter-spacing: 0.035em;
+  }
+
+  .hero__content {
+    padding-block: clamp(3rem, 7vh, 5rem) clamp(2rem, 5vh, 3.5rem);
   }
 }
 
