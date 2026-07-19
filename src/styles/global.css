@@ -1,87 +1,202 @@
-/*
- * Elixour Music Website
- * Global styles
- */
+/* Elixour Music — shared design foundation */
 
 :root {
-    --color-background: #050505;
-    --color-text: #f5f5f5;
-    --color-muted: #a0a0a0;
-    --font-display: Georgia, "Times New Roman", serif;
-    --font-body: Arial, Helvetica, sans-serif;
+  color-scheme: dark;
+  --color-ink: #f2eee5;
+  --color-ink-muted: #c5c1b8;
+  --color-night: #101512;
+  --color-focus: #e7d8ac;
+  --font-display: Georgia, "Times New Roman", Times, serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --page-gutter: clamp(1.25rem, 4vw, 4.5rem);
 }
 
-* {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-html,
+html {
+  background: var(--color-night);
+  scroll-behavior: smooth;
+}
+
 body {
-    min-height: 100%;
-    margin: 0;
+  min-width: 20rem;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--color-night);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
 }
 
-body {
-    background: var(--color-background);
-    color: var(--color-text);
-    font-family: var(--font-body);
+a {
+  color: inherit;
 }
 
 .hero {
-    min-height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 2rem;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vh, 3rem) var(--page-gutter);
+  background-color: var(--color-night);
+  background-image: url("../../public/images/homepage/night-sky.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
-.hero-content {
-    text-align: center;
+.hero__shade {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(3 7 6 / 58%) 0%, transparent 30%),
+    linear-gradient(0deg, rgb(3 7 6 / 72%) 0%, transparent 40%),
+    linear-gradient(90deg, rgb(3 7 6 / 28%), transparent 55%);
 }
 
-.eyebrow {
-    margin: 0 0 1.5rem;
-
-    color: var(--color-muted);
-    font-size: 0.75rem;
-    letter-spacing: 0.35em;
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
-h1 {
-    margin: 0;
+.site-header__name,
+.site-nav a {
+  text-decoration: none;
+  text-transform: uppercase;
+}
 
-    font-family: var(--font-display);
-    font-size: clamp(4rem, 12vw, 10rem);
-    font-weight: 400;
+.site-header__name {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  white-space: nowrap;
+}
+
+.site-nav {
+  display: flex;
+  gap: clamp(1.1rem, 2.6vw, 2.75rem);
+}
+
+.site-nav a {
+  padding-block: 0.35rem;
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-underline-offset: 0.45rem;
+  transition: color 180ms ease;
+}
+
+.site-nav a:hover {
+  color: var(--color-ink-muted);
+}
+
+.site-nav a:focus-visible,
+.site-header__name:focus-visible {
+  border-radius: 0.1rem;
+  outline: 2px solid var(--color-focus);
+  outline-offset: 0.4rem;
+}
+
+.hero__content {
+  align-self: center;
+  width: 100%;
+  margin-inline: auto;
+  padding-block: clamp(4rem, 12vh, 9rem);
+  text-align: center;
+}
+
+.hero__eyebrow,
+.hero__tagline,
+.hero__footnote {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.hero__eyebrow {
+  margin-bottom: clamp(1rem, 2.5vh, 1.75rem);
+  color: var(--color-ink-muted);
+  font-size: clamp(0.58rem, 1vw, 0.7rem);
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  white-space: nowrap;
+}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(4.25rem, 15.5vw, 13.5rem);
+  font-weight: 400;
+  letter-spacing: 0.075em;
+  line-height: 0.78;
+  text-transform: uppercase;
+  text-shadow: 0 0.08em 0.28em rgb(0 0 0 / 20%);
+}
+
+.hero__tagline {
+  max-width: 40rem;
+  margin: clamp(1.5rem, 3.5vh, 2.75rem) auto 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.78rem, 1.3vw, 1.05rem);
+  font-style: italic;
+  letter-spacing: 0.18em;
+  line-height: 1.6;
+}
+
+.hero__footnote {
+  color: var(--color-ink-muted);
+  font-size: 0.58rem;
+  letter-spacing: 0.23em;
+}
+
+@media (max-width: 42rem) {
+  .hero {
+    /* Keep the comet in frame as the landscape crops on narrow screens. */
+    background-position: 44% center;
+  }
+
+  .site-header {
+    align-items: flex-start;
+  }
+
+  .site-nav {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 0.65rem 1.2rem;
+    text-align: right;
+  }
+
+  .hero__title {
+    letter-spacing: 0.035em;
+  }
+}
+
+@media (max-width: 26rem) {
+  .site-header__name {
+    max-width: 5rem;
+    white-space: normal;
+  }
+
+  .hero__tagline {
+    font-size: 0.7rem;
     letter-spacing: 0.12em;
+  }
 }
 
-.tagline {
-    margin: 1.5rem 0 3rem;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-    color: var(--color-muted);
-    font-size: 0.9rem;
-    letter-spacing: 0.15em;
-}
-
-.main-navigation {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-}
-
-.main-navigation a {
-    color: var(--color-text);
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-}
-
-.main-navigation a:hover,
-.main-navigation a:focus-visible {
-    opacity: 0.55;
+  .site-nav a {
+    transition: none;
+  }
 }

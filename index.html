@@ -1,34 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Elixour Music — music inspired by nature, memory, and the stars.">
+    <meta name="theme-color" content="#101512">
 
     <title>Elixour Music</title>
 
     <link rel="stylesheet" href="src/styles/global.css">
-</head>
-<body>
+  </head>
+  <body>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__shade" aria-hidden="true"></div>
 
-    <main class="hero">
-        <div class="hero-content">
-            <p class="eyebrow">ELIXOUR MUSIC</p>
+        <header class="site-header">
+          <a class="site-header__name" href="./" aria-label="Elixour Music, home">
+            Elixour Music
+          </a>
 
-            <h1>ELIXOUR</h1>
+          <nav class="site-nav" aria-label="Primary navigation">
+            <a href="bio/">Bio</a>
+            <a href="music/">Music</a>
+            <a href="video/">Video</a>
+            <a href="photos/">Photos</a>
+          </nav>
+        </header>
 
-            <p class="tagline">
-                Music from the broken places.
-            </p>
-
-            <nav class="main-navigation" aria-label="Main navigation">
-                <a href="#">BIO</a>
-                <a href="#">MUSIK</a>
-                <a href="#">VIDEO</a>
-                <a href="#">PHOTOS</a>
-                <a href="#">MORE</a>
-            </nav>
+        <div class="hero__content">
+          <p class="hero__eyebrow">Elixour Music</p>
+          <h1 class="hero__title" id="hero-title">Elixour</h1>
+          <p class="hero__tagline">Music inspired by nature, memory, and the stars.</p>
         </div>
-    </main>
 
-</body>
+        <p class="hero__footnote">Independent music</p>
+      </section>
+    </main>
+  </body>
 </html>
