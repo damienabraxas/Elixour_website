@@ -9,6 +9,8 @@
     <title>Elixour Music</title>
 
     <link rel="stylesheet" href="src/styles/global.css">
+    <link rel="stylesheet" href="src/styles/music-player.css">
+    <script type="module" src="src/components/music-player/player.js"></script>
   </head>
   <body>
     <main>
@@ -22,7 +24,7 @@
 
           <nav class="site-nav" aria-label="Primary navigation">
             <a href="bio/">Bio</a>
-            <a href="music/">Music</a>
+            <a href="#music">Music</a>
             <a href="video/">Video</a>
             <a href="photos/">Photos</a>
           </nav>
@@ -35,6 +37,74 @@
         </div>
 
         <p class="hero__footnote">Independent music</p>
+      </section>
+
+      <section class="music-section" id="music" aria-labelledby="music-heading">
+        <div class="music-section__intro">
+          <p class="music-section__eyebrow">Listen</p>
+          <h2 id="music-heading">Music from Elixour</h2>
+        </div>
+
+        <div class="music-player" data-music-player>
+          <audio data-player-audio controls preload="metadata">
+            Your browser does not support HTML audio playback.
+          </audio>
+
+          <div class="music-player__instrument">
+            <div class="music-player__display">
+              <p class="music-player__label">Now selected</p>
+              <p class="music-player__title" data-player-title>Loading track list…</p>
+            </div>
+
+            <div class="vu-meter" data-vu-meter aria-hidden="true">
+              <div class="vu-meter__face">
+                <svg class="vu-meter__scale" viewBox="0 0 100 100" aria-hidden="true">
+                  <path class="vu-meter__scale-line" d="M 13.6 57 A 42 42 0 0 1 71 41.6"></path>
+                  <path class="vu-meter__scale-line vu-meter__scale-line--red" d="M 71 41.6 A 42 42 0 0 1 86.4 57"></path>
+                  <path class="vu-meter__tick" d="M 13.6 57 L 19.7 60.5 M 29 41.6 L 32.5 47.7 M 50 36 L 50 43"></path>
+                  <path class="vu-meter__tick vu-meter__tick--zero" d="M 71 41.6 L 67.5 47.7"></path>
+                  <path class="vu-meter__tick vu-meter__tick--red" d="M 86.4 57 L 80.3 60.5"></path>
+                  <text x="7" y="53">−20</text>
+                  <text x="23" y="36">−10</text>
+                  <text x="46" y="30">−5</text>
+                  <text x="69" y="35">0</text>
+                  <text class="vu-meter__red-text" x="83" y="53">+3</text>
+                  <text class="vu-meter__unit" x="44" y="58">dB</text>
+                </svg>
+                <span class="vu-meter__needle" data-vu-needle></span>
+                <span class="vu-meter__pivot"></span>
+              </div>
+            </div>
+
+            <div class="music-player__controls" aria-label="Playback controls">
+              <button class="music-player__button" type="button" data-player-previous aria-label="Previous track">
+                <span class="music-player__skip-symbol" aria-hidden="true">◀◀</span>
+              </button>
+              <button class="music-player__button" type="button" data-player-play aria-label="Play">
+                <span aria-hidden="true">▶</span>
+              </button>
+              <button class="music-player__button" type="button" data-player-pause aria-label="Pause">
+                <span aria-hidden="true">Ⅱ</span>
+              </button>
+              <button class="music-player__button" type="button" data-player-next aria-label="Next track">
+                <span class="music-player__skip-symbol" aria-hidden="true">▶▶</span>
+              </button>
+            </div>
+
+            <div class="music-player__timeline">
+              <span data-player-current-time>0:00</span>
+              <input data-player-progress type="range" min="0" max="100" value="0" step="0.1" aria-label="Playback position">
+              <span data-player-duration>0:00</span>
+            </div>
+
+            <p class="music-player__status" data-player-status role="status" aria-live="polite"></p>
+          </div>
+
+          <div class="music-player__playlist">
+            <h3>Track list</h3>
+            <ol data-player-track-list></ol>
+          </div>
+        </div>
       </section>
     </main>
   </body>

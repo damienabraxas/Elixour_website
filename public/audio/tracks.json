@@ -1,0 +1,29 @@
+[
+  {
+    "id": "death-of-innocence",
+    "title": "Death of Innocence",
+    "streamUrl": "public/audio/Death_of_Innocence.mp3",
+    "downloads": {
+      "flac": null,
+      "wav": null
+    }
+  },
+  {
+    "id": "troubling-times",
+    "title": "Troubling Times",
+    "streamUrl": "public/audio/Troubling_Times.mp3",
+    "downloads": {
+      "flac": null,
+      "wav": null
+    }
+  },
+  {
+    "id": "winter-sunsets",
+    "title": "Winter Sunsets",
+    "streamUrl": "public/audio/Winter_Sunsets.mp3",
+    "downloads": {
+      "flac": null,
+      "wav": null
+    }
+  }
+]
